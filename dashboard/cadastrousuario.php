@@ -6,7 +6,7 @@
 		$cpf		= $_POST['cxcpf'];
 		$senha		= $_POST['cxsenha'];
 		$sql 		= "INSERT INTO tbusuario (nome, email, cpf, senha) 
-		values ('$nome', '$email', '$cpf', '$senha')";
+		values ('$nome', '$email', '$cpf', md5('$senha'))";
 
 		$query = mysqli_query($conn, $sql);
 

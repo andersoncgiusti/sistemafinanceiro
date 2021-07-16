@@ -2,6 +2,7 @@
   SESSION_START();
   if(isset($_SESSION["nome"])){
     $use = $_SESSION["nome"];  
+    $iduser = $_SESSION["id"]; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,17 +74,18 @@
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                     <?php 
-                          $consultar = "SELECT *from tbreceita WHERE nomeusuario = '$use'";
+                          $consultar = "SELECT *from tbreceita WHERE id = '$iduser'";
                           $executar = mysqli_query($conn, $consultar);
                           $linha = mysqli_fetch_assoc($executar);
                     ?>   
                     <form action="alterareceita.php" method="POST">
                     <div class="row">
+                        
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">
                                 <div class="card-body">Salário</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <input type="number" class="form-control bg-info border-info" id="validationCustom01" name="cxsalario" value="<?php echo $linha['salario']; ?>" >                   
+                                    <input type="number" class="form-control bg-info border-info" id="validationCustom01" name="cxsa" value="<?php echo $linha['salario']; ?>" >                   
                                 </div>
                             </div>
                         </div>                        
@@ -91,12 +93,12 @@
                             <div class="card bg-success text-white mb-4">
                                 <div class="card-body">Poupança</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <input type="number" class="form-control bg-success border-success" id="validationCustom01" name="cxpoupanca" value="<?php echo $linha['poupanca']; ?>" >
+                                <input type="number" class="form-control bg-success border-success" id="validationCustom01" name="cxpoup" value="<?php echo $linha['poupanca']; ?>" >
                                 </div>
                             </div>
                         </div>
                         <?php
-                            $resultado = mysqli_query($conn, "SELECT sum(valor) as total FROM tbextrato WHERE nomeusuario = '$use'");
+                            $resultado = mysqli_query($conn, "SELECT sum(valor) as total FROM tbextrato WHERE id = '$iduser'");
                             $linha = mysqli_num_rows($resultado);
                             while($linha = mysqli_fetch_array($resultado)){
                         ?>  
@@ -104,13 +106,13 @@
                             <div class="card bg-warning text-white mb-4">
                                 <div class="card-body">Despesas</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <input readonly type="number" class="form-control bg-warning border-warning" id="validationCustom01" name="cxdespesas" value="<?php echo $linha['total']; ?>" >
+                                    <input readonly type="text" class="form-control bg-warning border-warning" id="validationCustom01" name="cxdespesas" value="<?php echo 'R$ '.$linha['total']; ?>" >
                                 </div>
                             </div>
                         </div>
                         <?php } ?>
                         <?php 
-                            $resultado = mysqli_query($conn, "SELECT ((SELECT salario FROM tbreceita WHERE nomeusuario = '$use') - (sum(valor))) as total FROM tbextrato WHERE nomeusuario = '$use'");
+                            $resultado = mysqli_query($conn, "SELECT ((SELECT salario FROM tbreceita WHERE id = '$iduser') - (sum(valor))) as total FROM tbextrato WHERE id = '$iduser'");
                             $linha = mysqli_num_rows($resultado);
                             while($linha = mysqli_fetch_array($resultado)){                      
 
@@ -119,7 +121,7 @@
                             <div class="card bg-secondary text-white mb-4">
                                 <div class="card-body">Saldo</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <input readonly type="number" class="form-control bg-secondary border-secondary" id="validationCustom01" name="cxsalario" value="<?php echo $linha['total']; ?>" >
+                                    <input readonly type="text" class="form-control bg-secondary border-secondary" id="validationCustom01" name="cxsalario" value="<?php echo 'R$ '.$linha['total']; ?>" >
                                 </div>
                             </div>
                         </div>

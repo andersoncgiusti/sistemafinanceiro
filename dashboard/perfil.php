@@ -98,11 +98,11 @@
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <label for="validationCustom01" class="form-label">CPF</label>
-        <input type="text" max="11" class="form-control border-dark" id="validationCustom01" name="cxcpf" value="<?php echo $linha['cpf']; ?>" >
+        <input type="number" class="form-control border-dark" id="validationCustom01" name="cxcpf" value="<?php echo $linha['cpf']; ?>" >
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <label for="validationCustom01" class="form-label">Senha</label>
-        <input type="text" class="form-control border-dark" id="validationCustom01" name="cxsenha" value="<?php echo $linha['senha']; ?>" >
+        <input type="password" class="form-control border-dark" id="validationCustom01" name="cxsenha" value="<?php echo $linha['senha']; ?>" >
                         </div>                        
                         <br>
                         <div class="col-md-4 mb-3 mt-1">                            

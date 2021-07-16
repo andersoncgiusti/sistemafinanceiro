@@ -2,6 +2,7 @@
   SESSION_START();
   if(isset($_SESSION["nome"])){
     $use = $_SESSION["nome"];  
+    $iduser = $_SESSION["id"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,16 +83,16 @@
                         <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <label for="validationCustom01" class="form-label">Salário</label>
-        <input type="number" class="form-control bg-info border-info" id="validationCustom01" name="cxsalario" value="" required>              
+        <input type="number" class="form-control bg-info border-info" id="validationCustom01" name="cxsa" value="" required>              
                         </div>
                         
                         <div class="col-xl-3 col-md-6">
                             <label for="validationCustom01" class="form-label">Poupança</label>
-        <input type="number" class="form-control bg-success border-success" id="validationCustom01" name="cxpoupanca" value="" required>
+        <input type="number" class="form-control bg-success border-success" id="validationCustom01" name="cxpoup" value="" required>
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <label for="validationCustom01" class="form-label">Clique para salvar!</label><br>
-        <button class="btn btn-outline-secondary" name="cxbusca" type="submit">Salvar <i class="fas fa-save"></i></i></button>
+        <button class="btn btn-outline-secondary" name="cxbusca" type="submit">Salvar <i class="fas fa-save"></i></button>
                         </div>                        
                     </div>       
                     </form>    

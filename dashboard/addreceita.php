@@ -1,15 +1,13 @@
 <?php
 	SESSION_START();
-	if($_POST['cxsalario'] != ""){
+	if($_POST['cxsa'] != ""){
 		include_once 'conexao.php';
 
-		$nomeusuario     = $_SESSION["nome"];
-	    $salario  = $_POST["cxsalario"];
-        //$despesas = $_POST["cxdespesas"];
-        $poupanca = $_POST["cxpoupanca"];
-        //$saldo    = $_POST["cxsaldo"];
-	    $sql    = "INSERT INTO tbreceita (nomeusuario, salario, poupanca) 
-		values ('$nomeusuario ', '$salario ', '$poupanca ')";
+		$id        = $_SESSION["id"];
+	    $salario   = $_POST["cxsa"];
+        $poupanca  = $_POST["cxpoup"];
+	    $sql    = "INSERT INTO tbreceita (id, salario, poupanca) 
+		values ('$id', '$salario ', '$poupanca ')";
 
 		$query = mysqli_query($conn, $sql);
 

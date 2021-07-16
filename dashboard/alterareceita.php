@@ -2,13 +2,14 @@
       SESSION_START();
       include_once 'conexao.php';
 
-      $nomeusuario     = $_SESSION["nome"];
-      $salario   = $_POST["cxsalario"];
-      $poupanca  = $_POST["cxpoupanca"];
-      $alterar = "UPDATE tbreceita SET
-        nome      = '$nomeusuario', 
+      $id        = $_SESSION["id"];
+      $salario   = $_POST["cxsa"];
+      $poupanca  = $_POST["cxpoup"];
+      $alterar = "UPDATE tbreceita SET 
+        id        = '$id',         
         salario   = '$salario',  
-        poupanca  = '$poupanca'";   
+        poupanca  = '$poupanca'
+          WHERE id = '$id'";   
       $executar = mysqli_query($conn, $alterar); 
       if ($alterar) {
         echo "<script>alert('Alterado com sucesso!'); 

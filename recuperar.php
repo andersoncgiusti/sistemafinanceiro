@@ -24,7 +24,7 @@
     <img class="mb-4" src="img/logo.png" alt="" width="180" height="180">  
     <h3 class="txt mb-3">Cadastre uma nova senha!</h3>
     <div class="form-floating">
-      <input type="text" max="11" class="form-control border border-warning" name="cxcpf" id="floatingInput" placeholder="Ex: 12345678911" required>
+      <input type="text" max="11" class="form-control border border-warning border-bottom-0 rounded-0 rounded-top" name="cxcpf" id="floatingInput" placeholder="Ex: 12345678911" required>
       <label for="floatingInput">CPF</label>
     </div>
     <div class="form-floating">

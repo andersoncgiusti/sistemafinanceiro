@@ -32,7 +32,7 @@
           <label for="floatingInput">name@example.com</label>
         </div>
         <div class="form-floating">
-          <input type="text" max="11" class="form-control border border-warning rounded-0 " id="floatingInput"  name="cxcpf" placeholder="Ex: 12345678911" required="Ex: 12345678911">
+          <input type="number" class="form-control border border-warning rounded-0 " id="floatingInput"  name="cxcpf" placeholder="Ex: 12345678911" required>
           <label for="floatingInput">CPF</label>
         </div>
         <div class="form-floating">

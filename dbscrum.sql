@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Jul-2021 às 18:09
+-- Tempo de geração: 16-Jul-2021 às 18:04
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.1
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbextrato` (
+  `idextrato` int(11) NOT NULL,
   `id` int(11) NOT NULL,
-  `nomeusuario` varchar(64) NOT NULL,
   `estabelecimento` varchar(64) NOT NULL,
   `data` date NOT NULL,
   `valor` decimal(10,0) NOT NULL,
@@ -44,8 +44,8 @@ CREATE TABLE `tbextrato` (
 --
 
 CREATE TABLE `tbreceita` (
+  `idreceita` int(11) NOT NULL,
   `id` int(11) NOT NULL,
-  `nomeusuario` varchar(64) NOT NULL,
   `salario` decimal(30,0) NOT NULL,
   `poupanca` decimal(30,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -58,11 +58,10 @@ CREATE TABLE `tbreceita` (
 
 CREATE TABLE `tbusuario` (
   `id` int(11) NOT NULL,
-  `nomeusuario` varchar(64) NOT NULL,
   `nome` varchar(64) NOT NULL,
   `email` varchar(64) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
-  `senha` int(11) NOT NULL
+  `cpf` double NOT NULL,
+  `senha` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -73,13 +72,13 @@ CREATE TABLE `tbusuario` (
 -- Índices para tabela `tbextrato`
 --
 ALTER TABLE `tbextrato`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idextrato`);
 
 --
 -- Índices para tabela `tbreceita`
 --
 ALTER TABLE `tbreceita`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idreceita`);
 
 --
 -- Índices para tabela `tbusuario`
@@ -95,19 +94,19 @@ ALTER TABLE `tbusuario`
 -- AUTO_INCREMENT de tabela `tbextrato`
 --
 ALTER TABLE `tbextrato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `idextrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de tabela `tbreceita`
 --
 ALTER TABLE `tbreceita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `idreceita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,8 @@
     include_once 'conexao.php';
 
      $senha     = $_POST["cxsenha"];
-     $alterar = "UPDATE tbusuario SET senha = '$senha'";   
+     $cpf     = $_POST["cxcpf"];
+     $alterar = "UPDATE tbusuario SET senha = '$senha' WHERE cpf = '$cpf'";   
      $executar = mysqli_query($conn, $alterar); 
    
     if ($alterar) {

@@ -1,17 +1,17 @@
 <?php
 	include_once 'conexao.php';
 
-	$cod = $_GET["id"];
-	$excluir = "DELETE from tbextrato WHERE id = '$cod' ";
+	$id      = $_GET["id"];
+	$excluir = "DELETE from tbextrato WHERE idextrato = '$id' ";
 	$executar = mysqli_query($conn, $excluir); 
 	if ($executar) {
-		echo "<script>alert('Excluído com sucesso!'); 
+		echo "<script> 
 				window.location.href = 'extrato.php' 
-				</script>";
+			  </script>";
 	}else{
 		echo "<script>alert('Não foi possível excluir, verifique novamente!'); 
 				window.location.href = 'extrato.php' 
-				</script>";
+			  </script>";
 	}
 
 

@@ -3,18 +3,18 @@
 	if($_POST['cxestabelecimento'] != ""){
 		include_once 'conexao.php';
 
-		$nomeusuario     = $_SESSION["nome"];
+		$id     = $_SESSION["id"];
 	    $estabelecimento = $_POST["cxestabelecimento"];
         $data            = $_POST["cxdata"];
         $valor           = $_POST["cxvalor"];
         $forma           = $_POST["cxforma"];
-	    $sql    = "INSERT INTO tbextrato (nomeusuario, estabelecimento, data, valor, forma) 
-		values ('$nomeusuario', '$estabelecimento', '$data', '$valor ', '$forma')";
+	    $sql    = "INSERT INTO tbextrato (id, estabelecimento, data, valor, forma) 
+		values ('$id', '$estabelecimento', '$data', '$valor ', '$forma')";
 
 		$query = mysqli_query($conn, $sql);
 
 		echo  "<script>
-					alert('Gasto adicionado com sucesso!');
+					alert('Adicionado');
 					window.location.href = 'index.php'
 			   </script>";
 

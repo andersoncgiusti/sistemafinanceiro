@@ -10,7 +10,7 @@
         nome   = '$nome', 
         email  = '$email', 
         cpf    = '$cpf',
-        senha  = '$senha'
+        senha  = md5('$senha')
           WHERE id = '$id'";   
       $executar = mysqli_query($conn, $alterar); 
       if ($alterar) {

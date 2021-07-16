@@ -2,6 +2,7 @@
   SESSION_START();
   if(isset($_SESSION["nome"])){
     $use = $_SESSION["nome"];  
+    $iduser = $_SESSION["id"]; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +79,7 @@
                               </div>                          
                             </div> 
                             <?php 
-                              $consultar = "SELECT *FROM tbextrato WHERE nomeusuario = '$use'";
+                              $consultar = "SELECT *FROM tbextrato WHERE id = '$iduser'";
                               $executar = mysqli_query($conn, $consultar);
                               while ($linha = mysqli_fetch_array($executar)) {
                             ?>
@@ -97,7 +98,7 @@
                                     </div>
                                     <div class="col-xl-3 col-md-6">
                                         <label for="validationCustom01" class="form-label">Valor</label>
-                                    <input type="text" class="form-control bg-warning border-warning" id="validationCustom01" name="cxvalor" value="<?php echo $linha['valor']; ?>">
+                                    <input type="text" class="form-control bg-warning border-warning" id="validationCustom01" name="cxvalor" value="<?php echo 'R$ '.$linha['valor']; ?>">
                                     </div>
                                     <div class="col-xl-3 col-md-6">
                                         <label for="validationCustom01" class="form-label">Forma de pagamento</label>
@@ -105,7 +106,7 @@
                                     </div>
                                     <br>
                                     <div class="col-md-4 mb-3 mt-1">
-                                        <a href="excluirextrato.php?id=<?php echo $linha['id']; ?>" class="btn btn-outline-danger" name="cxbusca" type="submit">Deletar <i class="fas fa-trash-alt"></i></a>                                    
+                                        <a href="excluirextrato.php?id=<?php echo $linha['idextrato']; ?>" class="btn btn-outline-danger" name="cxbusca" type="submit">Deletar <i class="fas fa-trash-alt"></i></a>                                    
                                     </div>                                    
                                 </div> 
                             <?php } ?>
