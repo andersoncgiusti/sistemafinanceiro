@@ -16,7 +16,7 @@ O sistema consiste com:
 - Cadastro de renda;
 - Cadastro de despesas;
 
-###### **TEcnologias usadas:**
+###### **Tecnologias usadas:**
 
 - Bootstrap 5
 - PHP
