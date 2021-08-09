@@ -16,6 +16,12 @@ O sistema consiste com:
 - Cadastro de renda;
 - Cadastro de despesas;
 
+###### **TEcnologias usadas:**
+
+- Bootstrap 5
+- PHP
+- MySQL
+
 Após a inserção do sálario e gastos o sistema faz de forma automática o total de gastos e o restante do saldo do salário, gerando um extrato de gastos.
 
 
